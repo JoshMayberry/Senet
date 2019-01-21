@@ -6,6 +6,6 @@
     <color name="colorPrimaryLight">#ffc947</color>
     <color name="colorPrimaryText">#000000</color>
 
-  <color name="colorTeamA">#d50000</color>
-  <color name="colorTeamB">#2962ff</color>
+  <color name="colorTeamA">#fa235e</color>
+  <color name="colorTeamB">#337fe9</color>
 </resources>
