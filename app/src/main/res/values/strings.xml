@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Senet</string>
+    <string name="error">N/A</string>
+    <string name="teamA_name">Player 1</string>
+    <string name="teamB_name">Player 2</string>
+    <string name="reset">Reset</string>
+    <string name="roll">Roll Bones</string>
 </resources>
