@@ -16,8 +16,14 @@ public class MainActivity extends AppCompatActivity {
     boolean teamA_turn = true; //true: It is team A's turn; false: It is team A's turn
 
     //See: https://www.tutorialspoint.com/java/util/arrays_fill_boolean.htm
-    boolean bones_state[] = new boolean[]{false, false, false, false}; //The state of each bone; 0 (face down) or 1 (face up)
-    int bones_id[] = new int[]{R.id.bone1, R.id.bone2, R.id.bone3, R.id.bone4}; //The view id for each bone
+    boolean state_bones[] = new boolean[]{false, false, false, false}; //The state of each bone; 0 (face down) or 1 (face up)
+
+    Random random = new Random();
+    TextView view_teamAScore = findViewById(R.id.teamA_score);
+    TextView view_teamBScore = findViewById(R.id.teamB_score);
+    ImageView view_teamCurrent = findViewById(R.id.currentTeam);
+    TextView view_boneTotal = findViewById(R.id.boneTotal);
+    ImageView view_bones[] = new ImageView[]{findViewById(R.id.bone1), findViewById(R.id.bone2), findViewById(R.id.bone3), findViewById(R.id.bone4)};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +39,7 @@ public class MainActivity extends AppCompatActivity {
      * Example Input: teamA_updateScore()
      */
     private void teamA_updateScore() {
-        TextView scoreView = findViewById(R.id.teamA_score);
-        scoreView.setText(String.valueOf(teamA_score));
+        view_teamAScore.setText(String.valueOf(teamA_score));
     }
 
     /**
@@ -42,8 +47,7 @@ public class MainActivity extends AppCompatActivity {
      * Example Input: teamA_updateScore()
      */
     private void teamB_updateScore() {
-        TextView scoreView = findViewById(R.id.teamB_score);
-        scoreView.setText(String.valueOf(teamB_score));
+        view_teamBScore.setText(String.valueOf(teamB_score));
     }
 
     /**
@@ -105,9 +109,8 @@ public class MainActivity extends AppCompatActivity {
         teamA_updateScore();
         teamB_updateScore();
 
-        ImageView currentTeamView = findViewById(R.id.currentTeam);
-        currentTeamView.setColorFilter(ContextCompat.getColor(this, R.color.colorTeamNull));
-        currentTeamView.setBackgroundColor(ContextCompat.getColor(this, R.color.colorTeamNull_background));
+        view_teamCurrent.setColorFilter(ContextCompat.getColor(this, R.color.colorTeamNull));
+        view_teamCurrent.setBackgroundColor(ContextCompat.getColor(this, R.color.colorTeamNull_background));
     }
 
     //Bone Methods
@@ -119,8 +122,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void rollBone(int boneIndex) {
         // See: https://developer.android.com/reference/java/util/Random
-        Random random = new Random();
-        bones_state[boneIndex] = random.nextBoolean();
+        state_bones[boneIndex] = random.nextBoolean();
     }
 
     /**
@@ -129,14 +131,13 @@ public class MainActivity extends AppCompatActivity {
      * Example Input: updateBone_picture(0)
      */
     private void updateBone_picture(int boneIndex) {
-        ImageView view = findViewById(bones_id[boneIndex]);
-        if (bones_state[boneIndex]) {
+        if (state_bones[boneIndex]) {
             //Special thanks to vincent091 for how to get a drawable object on: https://stackoverflow.com/questions/29041027/android-getresources-getdrawable-deprecated-api-22/29117227#29117227
             Drawable boneUp = ContextCompat.getDrawable(this, R.drawable.bone_up);
-            view.setImageDrawable(boneUp);
+            view_bones[boneIndex].setImageDrawable(boneUp);
         } else {
             Drawable boneDown = ContextCompat.getDrawable(this, R.drawable.bone_down);
-            view.setImageDrawable(boneDown);
+            view_bones[boneIndex].setImageDrawable(boneDown);
         }
     }
 
@@ -146,16 +147,15 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onDisplayBones(View buttonView) {
         //Show whose turn it is
-        ImageView currentTeamView = findViewById(R.id.currentTeam);
         if (teamA_turn) {
             teamA_turn = false;
             //Special thanks to Hardik for how to change the tint of an image on: https://stackoverflow.com/questions/20121938/how-to-set-tint-for-an-image-view-programmatically-in-android/20121975#20121975
-            currentTeamView.setColorFilter(ContextCompat.getColor(this, R.color.colorTeamA));
-            currentTeamView.setBackgroundColor(ContextCompat.getColor(this, R.color.colorTeamA_background));
+            view_teamCurrent.setColorFilter(ContextCompat.getColor(this, R.color.colorTeamA));
+            view_teamCurrent.setBackgroundColor(ContextCompat.getColor(this, R.color.colorTeamA_background));
         } else {
             teamA_turn = true;
-            currentTeamView.setColorFilter(ContextCompat.getColor(this, R.color.colorTeamB));
-            currentTeamView.setBackgroundColor(ContextCompat.getColor(this, R.color.colorTeamB_background));
+            view_teamCurrent.setColorFilter(ContextCompat.getColor(this, R.color.colorTeamB));
+            view_teamCurrent.setBackgroundColor(ContextCompat.getColor(this, R.color.colorTeamB_background));
         }
 
         //See: https://www.w3schools.com/java/java_for_loop.asp
@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
             rollBone(boneIndex);
             updateBone_picture(boneIndex);
             //Count Bone
-            if (bones_state[boneIndex]) {
+            if (state_bones[boneIndex]) {
                 total += 1;
             }
         }
@@ -172,7 +172,6 @@ public class MainActivity extends AppCompatActivity {
         if (total == 0) {
             total = 5;
         }
-        TextView view_boneTotal = findViewById(R.id.boneTotal);
         view_boneTotal.setText(String.valueOf(total));
     }
 }
