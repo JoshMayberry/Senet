@@ -1,62 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:orientation="vertical"
-    >
+    tools:context=".MainActivity">
 
     <!-- Credit for Icons; to be put on a Credits page when I learn how to make multiple screens -->
     <!--<div>Icons made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"-->
-        <!--title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"-->
-        <!--title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>-->
+    <!--title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"-->
+    <!--title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>-->
 
     <!-- Image Overlay -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        >
+        android:layout_weight="1">
+
         <ImageView
             android:id="@+id/currentTeam"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_android"
             android:padding="12dp"
-            android:tint="@android:color/darker_gray"
-            />
+            android:src="@drawable/ic_android"
+            android:tint="@android:color/darker_gray" />
+
         <TextView
             android:id="@+id/boneTotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/error"
             android:layout_centerInParent="true"
+            android:text="@string/error"
             android:textAlignment="center"
-            android:textSize="64sp"
-            />
+            android:textSize="64sp" />
+
         <LinearLayout
-            android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
 
             <ImageView
                 android:id="@+id/bone1"
-                style="@style/Bone"
-                />
+                style="@style/Bone" />
+
             <ImageView
                 android:id="@+id/bone2"
-                style="@style/Bone"
-                />
+                style="@style/Bone" />
+
             <ImageView
                 android:id="@+id/bone3"
-                style="@style/Bone"
-                />
+                style="@style/Bone" />
+
             <ImageView
                 android:id="@+id/bone4"
-                style="@style/Bone"
-                />
+                style="@style/Bone" />
         </LinearLayout>
     </RelativeLayout>
 
@@ -65,79 +62,74 @@
         android:id="@+id/scoreBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:background="@color/colorPrimaryLight"
-        >
+        android:orientation="horizontal">
+
         <LinearLayout
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:layout_weight="1"
+            android:orientation="vertical">
+
             <EditText
                 android:id="@+id/teamA_name"
-                android:text="@string/teamA_name"
                 style="@style/TeamName"
-                />
-            <LinearLayout
-                style="@style/ScoreBar"
-                >
+                android:text="@string/teamA_name" />
+
+            <LinearLayout style="@style/ScoreBar">
+
                 <ImageButton
                     android:id="@+id/teamA_scoreDown"
-                    android:src="@drawable/team_a_arrow_left"
-                    android:onClick="onTeamA_removeScore"
                     style="@style/ScoreButton"
-                    />
+                    android:onClick="onTeamA_removeScore"
+                    android:src="@drawable/team_a_arrow_left" />
+
                 <TextView
                     android:id="@+id/teamA_score"
-                    style="@style/ScoreText"
-                    />
+                    style="@style/ScoreText" />
+
                 <ImageButton
                     android:id="@+id/teamA_scoreUp"
-                    android:src="@drawable/team_a_arrow_right"
-                    android:onClick="onTeamA_addScore"
                     style="@style/ScoreButton"
-                    />
+                    android:onClick="onTeamA_addScore"
+                    android:src="@drawable/team_a_arrow_right" />
             </LinearLayout>
         </LinearLayout>
 
         <View
             android:layout_width="6dp"
             android:layout_height="match_parent"
-            android:background="@color/colorPrimary"
-            >
+            android:background="@color/colorPrimary">
         </View>
 
         <LinearLayout
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:layout_weight="1"
+            android:orientation="vertical">
+
             <EditText
                 android:id="@+id/teamB_name"
-                android:text="@string/teamB_name"
                 style="@style/TeamName"
-                />
-            <LinearLayout
-                style="@style/ScoreBar"
-                >
+                android:text="@string/teamB_name" />
+
+            <LinearLayout style="@style/ScoreBar">
+
                 <ImageButton
                     android:id="@+id/teamB_scoreDown"
-                    android:src="@drawable/team_b_arrow_left"
-                    android:onClick="onTeamB_removeScore"
                     style="@style/ScoreButton"
-                    />
+                    android:onClick="onTeamB_removeScore"
+                    android:src="@drawable/team_b_arrow_left" />
+
                 <TextView
                     android:id="@+id/teamB_score"
-                    style="@style/ScoreText"
-                    />
+                    style="@style/ScoreText" />
+
                 <ImageButton
                     android:id="@+id/teamB_scoreUp"
-                    android:src="@drawable/team_b_arrow_right"
-                    android:onClick="onTeamB_addScore"
                     style="@style/ScoreButton"
-                    />
+                    android:onClick="onTeamB_addScore"
+                    android:src="@drawable/team_b_arrow_right" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -146,20 +138,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        >
+        android:background="@color/colorPrimary">
+
         <Button
             android:id="@+id/reset"
-            android:text="@string/reset"
-            android:onClick="onResetScore"
             style="@style/ActionButton"
-            />
+            android:onClick="onResetScore"
+            android:text="@string/reset" />
+
         <Button
             android:id="@+id/roll"
-            android:text="@string/roll"
-            android:onClick="onDisplayBones"
             style="@style/ActionButton"
-            />
+            android:onClick="onDisplayBones"
+            android:text="@string/roll" />
     </LinearLayout>
-
 </LinearLayout>

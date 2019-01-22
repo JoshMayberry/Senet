@@ -16,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
     boolean teamA_turn = true; //true: It is team A's turn; false: It is team A's turn
 
     //See: https://www.tutorialspoint.com/java/util/arrays_fill_boolean.htm
-    boolean bones_state[] = new boolean[] {false, false, false, false}; //The state of each bone; 0 (face down) or 1 (face up)
-    int bones_id[] = new int[] {R.id.bone1, R.id.bone2, R.id.bone3, R.id.bone4}; //The view id for each bone
+    boolean bones_state[] = new boolean[]{false, false, false, false}; //The state of each bone; 0 (face down) or 1 (face up)
+    int bones_id[] = new int[]{R.id.bone1, R.id.bone2, R.id.bone3, R.id.bone4}; //The view id for each bone
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,51 +27,56 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Score Methods
-    /** Updates the score for team A.
-     *
+
+    /**
+     * Updates the score for team A.
      * Example Input: teamA_updateScore()
      */
-    private void teamA_updateScore(){
+    private void teamA_updateScore() {
         TextView scoreView = findViewById(R.id.teamA_score);
         scoreView.setText(String.valueOf(teamA_score));
     }
-    /** Updates the score for team A.
-     *
+
+    /**
+     * Updates the score for team A.
      * Example Input: teamA_updateScore()
      */
-    private void teamB_updateScore(){
+    private void teamB_updateScore() {
         TextView scoreView = findViewById(R.id.teamB_score);
         scoreView.setText(String.valueOf(teamB_score));
     }
 
-    /** Increments the score for team A.
-     *
+    /**
+     * Increments the score for team A.
      * Use For: A button's onClick attribute
      */
-    public void onTeamA_addScore(View buttonView){
+    public void onTeamA_addScore(View buttonView) {
         teamA_score += 1;
         teamA_updateScore();
     }
-    /** Decrements the score for team A.
-     *
+
+    /**
+     * Decrements the score for team A.
      * Use For: A button's onClick attribute
      */
-    public void onTeamA_removeScore(View buttonView){
+    public void onTeamA_removeScore(View buttonView) {
         if (teamA_score > 0) {
             teamA_score -= 1;
             teamA_updateScore();
         }
     }
-    /** Increments the score for team B.
-     *
+
+    /**
+     * Increments the score for team B.
      * Use For: A button's onClick attribute
      */
-    public void onTeamB_addScore(View buttonView){
+    public void onTeamB_addScore(View buttonView) {
         teamB_score += 1;
         teamB_updateScore();
     }
-    /** Decrements the score for team B.
-     *
+
+    /**
+     * Decrements the score for team B.
      * Use For: A button's onClick attribute
      */
     public void onTeamB_removeScore(View buttonView) {
@@ -81,18 +86,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /** A button event version of resetScore().
-     *
+    /**
+     * A button event version of resetScore().
      * Use For: A button's onClick attribute
      */
-    public void onResetScore(View buttonView){
+    public void onResetScore(View buttonView) {
         resetScore();
     }
-    /** Resets the score for both teams.
-     *
+
+    /**
+     * Resets the score for both teams.
      * Example Input: resetScore()
      */
-    private void resetScore(){
+    private void resetScore() {
         teamA_score = 0;
         teamB_score = 0;
 
@@ -105,10 +111,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Bone Methods
-    /** Creates new values for the given bone.
-     *
+
+    /**
+     * Creates new values for the given bone.
      * @param boneIndex - The index number of the bone to roll
-     *
      * Example Input: rollBone(0)
      */
     private void rollBone(int boneIndex) {
@@ -117,10 +123,9 @@ public class MainActivity extends AppCompatActivity {
         bones_state[boneIndex] = random.nextBoolean();
     }
 
-    /** Updates the image for a bone.
-     *
+    /**
+     * Updates the image for a bone.
      * @param boneIndex - The index number of the bone to update
-     *
      * Example Input: updateBone_picture(0)
      */
     private void updateBone_picture(int boneIndex) {
@@ -135,14 +140,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /** Updates the GUI with what the bones have rolled.
-     *
+    /**
+     * Updates the GUI with what the bones have rolled.
      * Use For: A button's onClick attribute
      */
     public void onDisplayBones(View buttonView) {
         //Show whose turn it is
         ImageView currentTeamView = findViewById(R.id.currentTeam);
-        if (teamA_turn){
+        if (teamA_turn) {
             teamA_turn = false;
             //Special thanks to Hardik for how to change the tint of an image on: https://stackoverflow.com/questions/20121938/how-to-set-tint-for-an-image-view-programmatically-in-android/20121975#20121975
             currentTeamView.setColorFilter(ContextCompat.getColor(this, R.color.colorTeamA));
@@ -155,16 +160,16 @@ public class MainActivity extends AppCompatActivity {
 
         //See: https://www.w3schools.com/java/java_for_loop.asp
         int total = 0;
-        for (int boneIndex = 0; boneIndex < 4; boneIndex++){
+        for (int boneIndex = 0; boneIndex < 4; boneIndex++) {
             rollBone(boneIndex);
             updateBone_picture(boneIndex);
             //Count Bone
-            if (bones_state[boneIndex]){
+            if (bones_state[boneIndex]) {
                 total += 1;
             }
         }
         //If all bones are face down, that is a 5
-        if (total == 0){
+        if (total == 0) {
             total = 5;
         }
         TextView view_boneTotal = findViewById(R.id.boneTotal);

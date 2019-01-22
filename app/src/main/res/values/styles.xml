@@ -1,5 +1,4 @@
 <resources>
-
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light">
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -7,7 +6,6 @@
         <item name="colorAccent">@color/colorPrimaryLight</item>
         <item name="colorButtonNormal">@color/colorPrimaryDark</item>
     </style>
-
 
     <!-- Utility Styles -->
     <style name="HasShadow">
@@ -39,6 +37,7 @@
         <item name="android:layout_height">wrap_content</item>
         <!--<item name="android:background">@color/colorPrimaryLight</item>-->
     </style>
+
     <style name="ScoreButton" parent="HasShadow">
         <item name="android:layout_weight">1</item>
         <item name="android:layout_width">0dp</item>
@@ -48,6 +47,7 @@
         <item name="android:scaleType">fitCenter</item>
         <item name="android:background">@android:color/transparent</item>
     </style>
+
     <style name="ScoreText">
         <item name="android:layout_weight">1</item>
         <item name="android:layout_width">0dp</item>
