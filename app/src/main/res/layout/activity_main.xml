@@ -41,19 +41,19 @@
 
             <ImageView
                 android:id="@+id/bone1"
-                style="@style/Bone" />
+                style="@style/Widget.AppCompact.Senet.ImageView.Bone" />
 
             <ImageView
                 android:id="@+id/bone2"
-                style="@style/Bone" />
+                style="@style/Widget.AppCompact.Senet.ImageView.Bone" />
 
             <ImageView
                 android:id="@+id/bone3"
-                style="@style/Bone" />
+                style="@style/Widget.AppCompact.Senet.ImageView.Bone" />
 
             <ImageView
                 android:id="@+id/bone4"
-                style="@style/Bone" />
+                style="@style/Widget.AppCompact.Senet.ImageView.Bone" />
         </LinearLayout>
     </RelativeLayout>
 
@@ -73,24 +73,26 @@
 
             <EditText
                 android:id="@+id/teamA_name"
-                style="@style/TeamName"
+                style="@style/Widget.AppCompact.Senet.TextView.TeamName"
                 android:text="@string/teamA_name" />
 
-            <LinearLayout style="@style/ScoreBar">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <ImageButton
                     android:id="@+id/teamA_scoreDown"
-                    style="@style/ScoreButton"
+                    style="@style/Widget.AppCompact.Senet.Button.Score"
                     android:onClick="onTeamA_removeScore"
                     android:src="@drawable/team_a_arrow_left" />
 
                 <TextView
                     android:id="@+id/teamA_score"
-                    style="@style/ScoreText" />
+                    style="@style/Widget.AppCompact.Senet.TextView.Score" />
 
                 <ImageButton
                     android:id="@+id/teamA_scoreUp"
-                    style="@style/ScoreButton"
+                    style="@style/Widget.AppCompact.Senet.Button.Score"
                     android:onClick="onTeamA_addScore"
                     android:src="@drawable/team_a_arrow_right" />
             </LinearLayout>
@@ -110,24 +112,26 @@
 
             <EditText
                 android:id="@+id/teamB_name"
-                style="@style/TeamName"
+                style="@style/Widget.AppCompact.Senet.TextView.TeamName"
                 android:text="@string/teamB_name" />
 
-            <LinearLayout style="@style/ScoreBar">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <ImageButton
                     android:id="@+id/teamB_scoreDown"
-                    style="@style/ScoreButton"
+                    style="@style/Widget.AppCompact.Senet.Button.Score"
                     android:onClick="onTeamB_removeScore"
                     android:src="@drawable/team_b_arrow_left" />
 
                 <TextView
                     android:id="@+id/teamB_score"
-                    style="@style/ScoreText" />
+                    style="@style/Widget.AppCompact.Senet.TextView.Score" />
 
                 <ImageButton
                     android:id="@+id/teamB_scoreUp"
-                    style="@style/ScoreButton"
+                    style="@style/Widget.AppCompact.Senet.Button.Score"
                     android:onClick="onTeamB_addScore"
                     android:src="@drawable/team_b_arrow_right" />
             </LinearLayout>
@@ -142,13 +146,13 @@
 
         <Button
             android:id="@+id/reset"
-            style="@style/ActionButton"
+            style="@style/Widget.AppCompact.Senet.Button.GameAction"
             android:onClick="onResetScore"
             android:text="@string/reset" />
 
         <Button
             android:id="@+id/roll"
-            style="@style/ActionButton"
+            style="@style/Widget.AppCompact.Senet.Button.GameAction"
             android:onClick="onDisplayBones"
             android:text="@string/roll" />
     </LinearLayout>
