@@ -6,6 +6,10 @@
     <color name="colorPrimaryLight">#ffc947</color>
     <color name="colorPrimaryText">#000000</color>
 
-  <color name="colorTeamA">#fa235e</color>
-  <color name="colorTeamB">#337fe9</color>
+    <color name="colorTeamNull">@android:color/darker_gray</color>
+    <color name="colorTeamNull_background">@android:color/background_light</color>
+    <color name="colorTeamA">#fa235e</color>
+    <color name="colorTeamA_background">#c91341</color>
+    <color name="colorTeamB">#337fe9</color>
+    <color name="colorTeamB_background">#005fe4</color>
 </resources>

@@ -23,10 +23,10 @@
             android:layout_height="match_parent"
             android:src="@drawable/ic_android"
             android:padding="12dp"
-            android:tint="@color/colorTeamA"
+            android:tint="@android:color/darker_gray"
             />
         <TextView
-            android:id="@+id/bonesTotal"
+            android:id="@+id/boneTotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/error"
@@ -83,6 +83,7 @@
                 <ImageButton
                     android:id="@+id/teamA_scoreDown"
                     android:src="@drawable/team_a_arrow_left"
+                    android:onClick="onTeamA_removeScore"
                     style="@style/ScoreButton"
                     />
                 <TextView
@@ -92,6 +93,7 @@
                 <ImageButton
                     android:id="@+id/teamA_scoreUp"
                     android:src="@drawable/team_a_arrow_right"
+                    android:onClick="onTeamA_addScore"
                     style="@style/ScoreButton"
                     />
             </LinearLayout>
@@ -121,6 +123,7 @@
                 <ImageButton
                     android:id="@+id/teamB_scoreDown"
                     android:src="@drawable/team_b_arrow_left"
+                    android:onClick="onTeamB_removeScore"
                     style="@style/ScoreButton"
                     />
                 <TextView
@@ -130,11 +133,11 @@
                 <ImageButton
                     android:id="@+id/teamB_scoreUp"
                     android:src="@drawable/team_b_arrow_right"
+                    android:onClick="onTeamB_addScore"
                     style="@style/ScoreButton"
                     />
             </LinearLayout>
         </LinearLayout>
-
     </LinearLayout>
 
     <!-- Actions Bar -->
@@ -145,21 +148,15 @@
         >
         <Button
             android:id="@+id/reset"
-            android:padding="18dp"
-            android:layout_margin="6dp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:text="@string/reset"
+            android:onClick="onResetScore"
+            style="@style/ActionButton"
             />
         <Button
             android:id="@+id/roll"
-            android:padding="18dp"
-            android:layout_margin="6dp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:text="@string/roll"
+            android:onClick="onDisplayBones"
+            style="@style/ActionButton"
             />
     </LinearLayout>
 
