@@ -11,19 +11,19 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    int teamA_score = 0;
-    int teamB_score = 0;
-    boolean teamA_turn = true; //true: It is team A's turn; false: It is team A's turn
+    private int teamA_score = 0;
+    private int teamB_score = 0;
+    private boolean teamA_turn = true; //true: It is team A's turn; false: It is team A's turn
 
     //See: https://www.tutorialspoint.com/java/util/arrays_fill_boolean.htm
-    boolean state_bones[] = new boolean[]{false, false, false, false}; //The state of each bone; 0 (face down) or 1 (face up)
+    private boolean state_bones[] = new boolean[]{false, false, false, false}; //The state of each bone; 0 (face down) or 1 (face up)
 
-    Random random = new Random();
-    TextView view_teamAScore = findViewById(R.id.teamA_score);
-    TextView view_teamBScore = findViewById(R.id.teamB_score);
-    ImageView view_teamCurrent = findViewById(R.id.currentTeam);
-    TextView view_boneTotal = findViewById(R.id.boneTotal);
-    ImageView view_bones[] = new ImageView[]{findViewById(R.id.bone1), findViewById(R.id.bone2), findViewById(R.id.bone3), findViewById(R.id.bone4)};
+    private Random random = new Random();
+    private TextView view_teamAScore = findViewById(R.id.teamA_score);
+    private TextView view_teamBScore = findViewById(R.id.teamB_score);
+    private ImageView view_teamCurrent = findViewById(R.id.currentTeam);
+    private TextView view_boneTotal = findViewById(R.id.boneTotal);
+    private ImageView view_bones[] = new ImageView[]{findViewById(R.id.bone1), findViewById(R.id.bone2), findViewById(R.id.bone3), findViewById(R.id.bone4)};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
