@@ -19,16 +19,28 @@ public class MainActivity extends AppCompatActivity {
     private boolean state_bones[] = new boolean[]{false, false, false, false}; //The state of each bone; 0 (face down) or 1 (face up)
 
     private Random random = new Random();
-    private TextView view_teamAScore = findViewById(R.id.teamA_score);
-    private TextView view_teamBScore = findViewById(R.id.teamB_score);
-    private ImageView view_teamCurrent = findViewById(R.id.currentTeam);
-    private TextView view_boneTotal = findViewById(R.id.boneTotal);
-    private ImageView view_bones[] = new ImageView[]{findViewById(R.id.bone1), findViewById(R.id.bone2), findViewById(R.id.bone3), findViewById(R.id.bone4)};
+    private TextView view_teamAScore;
+    private TextView view_teamBScore;
+    private ImageView view_teamCurrent;
+    private TextView view_boneTotal;
+    private ImageView view_bones[] = new ImageView[4];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        view_teamAScore = findViewById(R.id.teamA_score);
+        view_teamBScore = findViewById(R.id.teamB_score);
+        view_teamCurrent = findViewById(R.id.currentTeam);
+        view_boneTotal = findViewById(R.id.boneTotal);
+        view_bones[0] = findViewById(R.id.bone1);
+        view_bones[1] = findViewById(R.id.bone2);
+        view_bones[2] = findViewById(R.id.bone3);
+        view_bones[3] = findViewById(R.id.bone4);
+
+
+
         resetScore();
     }
 
