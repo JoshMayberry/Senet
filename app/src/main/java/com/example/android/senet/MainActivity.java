@@ -27,6 +27,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        TextView splashMessage = new TextView(this);
+        splashMessage.setText("Loading...");
+        splashMessage.setTextSize(24);
+        splashMessage.setGravity(17); //https://developer.android.com/reference/android/view/Gravity.html#CENTER
+        setContentView(splashMessage);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
